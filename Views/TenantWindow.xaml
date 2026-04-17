@@ -1,29 +1,21 @@
 <Window x:Class="SocietyManagementSystem.TenantWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Tenant Management" Height="640" Width="1040" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" WindowStyle="SingleBorderWindow">
-    <Grid>
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SocietyManagementSystem"
+        mc:Ignorable="d"
+        Title="Tenant Management" Height="520" Width="820" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" WindowStyle="SingleBorderWindow">
+      <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#FFEDF5FF" Offset="0"/>
-                <GradientStop Color="#FFEEF9F2" Offset="0.45"/>
-                <GradientStop Color="#FFF7ECFF" Offset="1"/>
+                <GradientStop Color="#FF77D6FF" Offset="0.0"/>
+                <GradientStop Color="#FFB7F8DB" Offset="0.45"/>
+                <GradientStop Color="#FFF9D1FF" Offset="1.0"/>
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Border Margin="16" Padding="20" Background="#FFFFFFFF" CornerRadius="28" BorderBrush="#E4E9F2" BorderThickness="1" Effect="{DynamicResource WindowShadow}">
-            <StackPanel>
-                <TextBlock Text="Tenant Management" FontSize="28" FontWeight="Bold" Foreground="#1F3147" />
-                <TextBlock Text="Manage society tenant details, contacts and important dates." FontSize="14" Foreground="#62768D" Margin="0,6,0,0" />
-            </StackPanel>
-        </Border>
-
-        <Grid Grid.Row="1" Margin="16,0,16,16">
+        <Grid Grid.Row="1" Margin="16,16,16,16">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="360" />
                 <ColumnDefinition Width="18" />
@@ -35,39 +27,39 @@
                     <TextBlock Text="Tenant Details" FontSize="18" FontWeight="SemiBold" Foreground="#223350" Margin="0,0,0,14" />
                     <StackPanel Margin="0,0,0,10">
                         <TextBlock Text="Title" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                        <ComboBox x:Name="cmbTitle" Width="Auto" Height="38" ItemsSource="{Binding Titles}" SelectedItem="{Binding SelectedTitle}" />
+                        <ComboBox x:Name="cmbTitle" Width="Auto" Height="25" ItemsSource="{Binding Titles}" SelectedItem="{Binding SelectedTitle}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,10">
                         <TextBlock Text="First Name" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                        <TextBox x:Name="txtFirstName" Height="38" />
+                        <TextBox x:Name="txtFirstName" Height="25" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,10">
                         <TextBlock Text="Middle Name" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                        <TextBox x:Name="txtMiddleName" Height="38" />
+                        <TextBox x:Name="txtMiddleName" Height="25" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,10">
                         <TextBlock Text="Last Name" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                        <TextBox x:Name="txtLastName" Height="38" />
+                        <TextBox x:Name="txtLastName" Height="25" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,10">
                         <TextBlock Text="Gender" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                        <ComboBox x:Name="cmbGender" Height="38" ItemsSource="{Binding Genders}" SelectedItem="{Binding SelectedGender}" />
+                        <ComboBox x:Name="cmbGender" Height="25" ItemsSource="{Binding Genders}" SelectedItem="{Binding SelectedGender}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,10">
                         <TextBlock Text="Email" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                        <TextBox x:Name="txtEmail" Height="38" />
+                        <TextBox x:Name="txtEmail" Height="25" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,10">
                         <TextBlock Text="Phone" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                        <TextBox x:Name="txtPhone" Height="38" />
+                        <TextBox x:Name="txtPhone" Height="25" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,10">
                         <TextBlock Text="Date of Birth" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                        <DatePicker x:Name="dpDOB" Height="38" />
+                        <DatePicker x:Name="dpDOB" Height="25" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,10">
                         <TextBlock Text="Anniversary" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                        <DatePicker x:Name="dpAnniversary" Height="38" />
+                        <DatePicker x:Name="dpAnniversary" Height="25" />
                     </StackPanel>
                 </StackPanel>
             </Border>
