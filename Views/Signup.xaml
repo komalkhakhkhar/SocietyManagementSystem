@@ -5,88 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SocietyManagementSystem"
         mc:Ignorable="d"
-        Title="Sign Up" Height="520" Width="820" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" WindowStyle="SingleBorderWindow">
-      <Grid>
+        Title="Sign Up - Society Management System" Height="700" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" WindowStyle="SingleBorderWindow">
+    <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#FF77D6FF" Offset="0.0"/>
-                <GradientStop Color="#FFB7F8DB" Offset="0.45"/>
-                <GradientStop Color="#FFF9D1FF" Offset="1.0"/>
+                <GradientStop Color="#FFEDF5FF" Offset="0"/>
+                <GradientStop Color="#FFEEF9F2" Offset="0.45"/>
+                <GradientStop Color="#FFF7ECFF" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
 
-        <!-- Centered Card -->
-       <Border Width="440" Padding="36" Background="#FAFCFF" CornerRadius="36" HorizontalAlignment="Center" VerticalAlignment="Center" Effect="{DynamicResource DropShadowEffect}">
-            <StackPanel>
-                <Image Source="rr_logo.png" Width="64" Height="64" HorizontalAlignment="Center" Margin="0,0,0,10" />
-                <TextBlock Text="Society Management" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20" />
+        <Border Width="520" Padding="40" Background="#FFFFFFFF" CornerRadius="28" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="#E4E9F2" BorderThickness="1">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <Image Source="pack://application:,,,/Resources/MainIcon.png" Width="70" Height="70" HorizontalAlignment="Center" Margin="0,0,0,16" />
+                    <TextBlock Text="Create New Society" FontSize="32" FontWeight="Bold" Foreground="#1F3147" HorizontalAlignment="Center" Margin="0,0,0,8" />
+                    <TextBlock Text="Set up your society management account" FontSize="14" Foreground="#62768D" TextAlignment="Center" Margin="0,0,0,32" TextWrapping="Wrap" />
 
-                <!-- Society Name Field -->
-                <TextBlock Text="Society name" FontSize="12" Foreground="#6B7B90" Margin="4,0,0,6" />
-                <Border CornerRadius="14" Background="White" BorderBrush="#D9E2F0" BorderThickness="1" Margin="0,0,0,12" Height="48">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="42" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE71D;" FontSize="18" Foreground="#8D99A8" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                        <TextBox x:Name="txtSocietyName" Grid.Column="1" BorderThickness="0" Background="Transparent" Foreground="#222" FontSize="14" VerticalContentAlignment="Center" Padding="6,0" />
-                    </Grid>
-                </Border>
+                    <!-- Society Name Field -->
+                    <TextBlock Text="Society Name" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,8" FontWeight="SemiBold" />
+                    <Border CornerRadius="12" Background="#F8F9FA" BorderBrush="#E4E9F2" BorderThickness="1" Margin="0,0,0,16" Height="44">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE71D;" FontSize="18" Foreground="#8D99A8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            <TextBox x:Name="txtSocietyName" Grid.Column="1" BorderThickness="0" Background="Transparent" Foreground="#1F3147" FontSize="14" VerticalContentAlignment="Center" Padding="12,0" />
+                        </Grid>
+                    </Border>
 
-                <!-- Username Field -->
-                <TextBlock Text="Username" FontSize="12" Foreground="#6B7B90" Margin="4,0,0,6" />
-                <Border CornerRadius="14" Background="White" BorderBrush="#D9E2F0" BorderThickness="1" Margin="0,0,0,12" Height="48">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="42" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE77B;" FontSize="18" Foreground="#8D99A8" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                        <TextBox x:Name="txtUsername" Grid.Column="1" BorderThickness="0" Background="Transparent" Foreground="#222" FontSize="14" VerticalContentAlignment="Center" Padding="6,0" />
-                    </Grid>
-                </Border>
+                    <!-- Username Field -->
+                    <TextBlock Text="Username" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,8" FontWeight="SemiBold" />
+                    <Border CornerRadius="12" Background="#F8F9FA" BorderBrush="#E4E9F2" BorderThickness="1" Margin="0,0,0,16" Height="44">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE77B;" FontSize="18" Foreground="#8D99A8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            <TextBox x:Name="txtUsername" Grid.Column="1" BorderThickness="0" Background="Transparent" Foreground="#1F3147" FontSize="14" VerticalContentAlignment="Center" Padding="12,0" />
+                        </Grid>
+                    </Border>
 
-                <!-- Email Field -->
-                <TextBlock Text="Email" FontSize="12" Foreground="#6B7B90" Margin="4,0,0,6" />
-                <Border CornerRadius="14" Background="White" BorderBrush="#D9E2F0" BorderThickness="1" Margin="0,0,0,18" Height="48">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="42" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE72E;" FontSize="18" Foreground="#8D99A8" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                        <TextBox x:Name="txtEmail" Grid.Column="1" BorderThickness="0" Background="Transparent" Foreground="#222" FontSize="14" VerticalContentAlignment="Center" Padding="6,0" />
-                    </Grid>
-                </Border>
+                    <!-- Email Field -->
+                    <TextBlock Text="Email Address" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,8" FontWeight="SemiBold" />
+                    <Border CornerRadius="12" Background="#F8F9FA" BorderBrush="#E4E9F2" BorderThickness="1" Margin="0,0,0,16" Height="44">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE715;" FontSize="18" Foreground="#8D99A8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            <TextBox x:Name="txtEmail" Grid.Column="1" BorderThickness="0" Background="Transparent" Foreground="#1F3147" FontSize="14" VerticalContentAlignment="Center" Padding="12,0" />
+                        </Grid>
+                    </Border>
 
-                <!-- Password Field -->
-                <TextBlock Text="Password" FontSize="12" Foreground="#6B7B90" Margin="4,0,0,6" />
-                <Border CornerRadius="14" Background="White" BorderBrush="#D9E2F0" BorderThickness="1" Margin="0,0,0,18" Height="48">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="42" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE72E;" FontSize="18" Foreground="#8D99A8" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                        <PasswordBox x:Name="txtPassword" Grid.Column="1" BorderThickness="0" Background="Transparent" Foreground="#222" FontSize="14" VerticalContentAlignment="Center" Padding="6,0" />
-                    </Grid>
-                </Border>
+                    <!-- Password Field -->
+                    <TextBlock Text="Password" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,8" FontWeight="SemiBold" />
+                    <Border CornerRadius="12" Background="#F8F9FA" BorderBrush="#E4E9F2" BorderThickness="1" Margin="0,0,0,24" Height="44">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE72E;" FontSize="18" Foreground="#8D99A8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            <PasswordBox x:Name="txtPassword" Grid.Column="1" BorderThickness="0" Background="Transparent" Foreground="#1F3147" FontSize="14" VerticalContentAlignment="Center" Padding="12,0" />
+                        </Grid>
+                    </Border>
 
-                <Button Content="signup" Click="btnSignup_Click" Height="38" Margin="0,10,0,0" FontSize="16" FontWeight="Bold" Foreground="White">
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Color="#FFB224EF" Offset="0.0"/>
-                            <GradientStop Color="#FF44C5F6" Offset="1.0"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-                <TextBlock x:Name="lblMessage" Foreground="Red" HorizontalAlignment="Center" Margin="0,10,0,0" />
-            </StackPanel>
+                    <!-- Signup Button -->
+                    <Button Content="Create Account" Click="btnSignup_Click" Height="48" Margin="0,0,0,12" FontSize="16" FontWeight="SemiBold" Foreground="White" BorderBrush="Transparent" Cursor="Hand">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#FFB224EF" Offset="0.0"/>
+                                <GradientStop Color="#FF44C5F6" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+
+                    <!-- Login Link -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="Already have an account? " Foreground="#62768D" FontSize="12" />
+                        <Button Content="Sign in" Click="btnLogin_Click" Background="Transparent" Foreground="#44C5F6" BorderBrush="Transparent" Cursor="Hand" FontSize="12" FontWeight="SemiBold" Padding="0" Margin="-6,0,0,0" />
+                    </StackPanel>
+
+                    <!-- Error Message -->
+                    <TextBlock x:Name="lblMessage" Foreground="#E53935" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" MinHeight="0" />
+                </StackPanel>
+            </ScrollViewer>
         </Border>
-        <!-- Optional: Drop shadow effect resource -->
-        <Grid.Resources>
-            <DropShadowEffect x:Key="DropShadowEffect" BlurRadius="20" ShadowDepth="0" Color="#888" Opacity="0.3" />
-        </Grid.Resources>
+
     </Grid>
 </Window>

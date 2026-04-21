@@ -16,40 +16,47 @@ namespace SocietyManagementSystem;
 /// </summary>
 public partial class Login : Window
 {
-    private MongoDbService _mongoDbService;
+    private MongoDbService? _mongoDbService;
 
     public Login()
     {
         InitializeComponent();
-        this.WindowState = WindowState.Maximized;
     }
 
     private async void btnLogin_Click(object sender, RoutedEventArgs e)
     {
-        string societyName = txtSocietyName.Text.Trim();
-        string username = txtUsername.Text.Trim();
-        string password = txtPassword.Password;
-
-        if (string.IsNullOrEmpty(societyName) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+        try
         {
-            lblMessage.Text = "All fields are required.";
-            return;
+            string societyName = txtSocietyName.Text.Trim();
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Password;
+
+            if (string.IsNullOrEmpty(societyName) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                lblMessage.Text = "All fields are required.";
+                return;
+            }
+
+            _mongoDbService = new MongoDbService(societyName);
+
+            bool isValid = await _mongoDbService.ValidateLoginAsync(username, password);
+
+            if (isValid)
+            {
+                MessageBox.Show("Login Successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                Dashboard dashboard = new Dashboard(societyName);
+                dashboard.Show();
+                this.Close();
+            }
+            else
+            {
+                lblMessage.Text = "Invalid username or password.";
+            }
         }
-
-        _mongoDbService = new MongoDbService(societyName);
-
-        bool isValid = await _mongoDbService.ValidateLoginAsync(username, password);
-
-        if (isValid)
+        catch (Exception ex)
         {
-            MessageBox.Show("Login Successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-            TenantWindow dashboard = new TenantWindow(societyName);
-            dashboard.Show();
-            this.Close();
-        }
-        else
-        {
-            lblMessage.Text = "Invalid username or password.";
+            lblMessage.Text = $"Error: {ex.Message}";
+            MessageBox.Show($"Login error: {ex.Message}\n\n{ex.InnerException?.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 

@@ -1,0 +1,97 @@
+<Window x:Class="SocietyManagementSystem.RentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Rent Management" Height="640" Width="1040" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" WindowStyle="SingleBorderWindow">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FFEDF5FF" Offset="0"/>
+                <GradientStop Color="#FFEEF9F2" Offset="0.45"/>
+                <GradientStop Color="#FFF7ECFF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Margin="16" Padding="20" Background="#FFFFFFFF" CornerRadius="28" BorderBrush="#E4E9F2" BorderThickness="1" Effect="{DynamicResource WindowShadow}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="Rent Management" FontSize="28" FontWeight="Bold" Foreground="#1F3147" />
+                    <TextBlock Text="Manage rent collection and payments." FontSize="14" Foreground="#62768D" Margin="0,6,0,0" />
+                </StackPanel>
+                <Button Grid.Column="1" Content="Back" Width="80" Height="38" Click="BtnBack_Click" Background="#EF5B5B" Foreground="White" BorderBrush="Transparent" VerticalAlignment="Center" />
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1" Margin="16,0,16,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="360" />
+                <ColumnDefinition Width="18" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Background="#FFFFFFFF" CornerRadius="24" Padding="18" BorderBrush="#E4E9F2" BorderThickness="1" Effect="{DynamicResource WindowShadow}">
+                <StackPanel>
+                    <TextBlock Text="Rent Details" FontSize="18" FontWeight="SemiBold" Foreground="#223350" Margin="0,0,0,14" />
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock Text="Tenant" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
+                        <ComboBox x:Name="cmbTenant" Height="38" DisplayMemberPath="FirstName" SelectedValuePath="Id" />
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock Text="Amount" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
+                        <TextBox x:Name="txtAmount" Height="38" />
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock Text="Due Date" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
+                        <DatePicker x:Name="dpDueDate" Height="38" />
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock Text="Month" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
+                        <TextBox x:Name="txtMonth" Height="38" />
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock Text="Year" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
+                        <TextBox x:Name="txtYear" Height="38" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2" Background="#FFFFFFFF" CornerRadius="24" Padding="18" BorderBrush="#E4E9F2" BorderThickness="1" Effect="{DynamicResource WindowShadow}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,12">
+                        <Button Content="Add Rent" Width="96" Height="38" Margin="0,0,8,0" Click="BtnAddRent_Click" Background="#6C63FF" Foreground="White" BorderBrush="Transparent" />
+                        <Button Content="Mark Paid" Width="96" Height="38" Margin="0,0,8,0" Click="BtnMarkPaid_Click" Background="#4CAF50" Foreground="White" BorderBrush="Transparent" />
+                        <Button Content="Delete" Width="96" Height="38" Click="BtnDeleteRent_Click" Background="#EF5B5B" Foreground="White" BorderBrush="Transparent" />
+                    </StackPanel>
+
+                    <DataGrid x:Name="dgRents" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" HeadersVisibility="Column" SelectionMode="Single" SelectionChanged="DgRents_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Tenant" Binding="{Binding TenantName}" Width="120"/>
+                            <DataGridTextColumn Header="Amount" Binding="{Binding Amount, StringFormat=C}" Width="100"/>
+                            <DataGridTextColumn Header="Due Date" Binding="{Binding DueDate, StringFormat=d}" Width="100"/>
+                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="80"/>
+                            <DataGridTextColumn Header="Paid Date" Binding="{Binding PaidDate, StringFormat=d}" Width="100"/>
+                            <DataGridTextColumn Header="Month" Binding="{Binding Month}" Width="60"/>
+                            <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="60"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid.Resources>
+            <DropShadowEffect x:Key="WindowShadow" BlurRadius="24" ShadowDepth="0" Color="#4A5A7A" Opacity="0.14" />
+        </Grid.Resources>
+    </Grid>
+</Window>
