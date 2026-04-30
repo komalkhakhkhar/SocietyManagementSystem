@@ -68,18 +68,22 @@ namespace SocietyManagementSystem
                         case "Manage Tenants":
                             var tenantWindow = new TenantWindow(_societyName);
                             tenantWindow.Show();
+                            this.Close();
                             break;
                         case "Manage Rents":
                             var rentWindow = new RentWindow(_societyName);
                             rentWindow.Show();
+                            this.Close();
                             break;
                         case "Maintenance Requests":
                             var maintenanceWindow = new MaintenanceWindow(_societyName);
                             maintenanceWindow.Show();
+                            this.Close();
                             break;
                         case "Announcements":
                             var noticeWindow = new NoticeWindow(_societyName);
                             noticeWindow.Show();
+                            this.Close();
                             break;
                     }
                 }

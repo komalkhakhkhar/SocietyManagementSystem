@@ -21,6 +21,7 @@ public partial class Login : Window
     public Login()
     {
         InitializeComponent();
+        this.WindowState = WindowState.Maximized;
     }
 
     private async void btnLogin_Click(object sender, RoutedEventArgs e)

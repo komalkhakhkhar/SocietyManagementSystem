@@ -307,6 +307,7 @@ namespace SocietyManagementSystem
                 await LoadStats();
             };
             rentWindow.Show();
+            this.Close();
         }
 
         private void BtnMaintenance_Click(object sender, RoutedEventArgs e)
@@ -318,6 +319,7 @@ namespace SocietyManagementSystem
                 await LoadStats();
             };
             maintenanceWindow.Show();
+            this.Close();
         }
 
         private void BtnNotices_Click(object sender, RoutedEventArgs e)
@@ -329,6 +331,7 @@ namespace SocietyManagementSystem
                 await LoadStats();
             };
             noticeWindow.Show();
+            this.Close();
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)

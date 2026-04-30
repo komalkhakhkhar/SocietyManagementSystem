@@ -84,47 +84,47 @@
                         <TextBlock Text="Tenant Details" FontSize="18" FontWeight="SemiBold" Foreground="#223350" Margin="0,0,0,14" />
                         <StackPanel Margin="0,0,0,10">
                             <TextBlock Text="Title" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                            <ComboBox x:Name="cmbTitle" Width="Auto" Height="38" ItemsSource="{Binding Titles}" SelectedItem="{Binding SelectedTitle}" />
+                            <ComboBox x:Name="cmbTitle" Width="Auto" Height="30" ItemsSource="{Binding Titles}" SelectedItem="{Binding SelectedTitle}" />
                         </StackPanel>
                         <StackPanel Margin="0,0,0,10">
                             <TextBlock Text="First Name" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                            <TextBox x:Name="txtFirstName" Height="38" />
+                            <TextBox x:Name="txtFirstName" Height="30" />
                         </StackPanel>
                         <StackPanel Margin="0,0,0,10">
                             <TextBlock Text="Middle Name" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                            <TextBox x:Name="txtMiddleName" Height="38" />
+                            <TextBox x:Name="txtMiddleName" Height="30" />
                         </StackPanel>
                         <StackPanel Margin="0,0,0,10">
                             <TextBlock Text="Last Name" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                            <TextBox x:Name="txtLastName" Height="38" />
+                            <TextBox x:Name="txtLastName" Height="30" />
                         </StackPanel>
                         <StackPanel Margin="0,0,0,10">
                             <TextBlock Text="Gender" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                            <ComboBox x:Name="cmbGender" Height="38" ItemsSource="{Binding Genders}" SelectedItem="{Binding SelectedGender}" />
+                            <ComboBox x:Name="cmbGender" Height="30" ItemsSource="{Binding Genders}" SelectedItem="{Binding SelectedGender}" />
                         </StackPanel>
                         <StackPanel Margin="0,0,0,10">
                             <TextBlock Text="Email" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                            <TextBox x:Name="txtEmail" Height="38" />
+                            <TextBox x:Name="txtEmail" Height="30" />
                         </StackPanel>
                         <StackPanel Margin="0,0,0,10">
                             <TextBlock Text="Phone" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                            <TextBox x:Name="txtPhone" Height="38" />
+                            <TextBox x:Name="txtPhone" Height="30" />
                         </StackPanel>
                         <StackPanel Margin="0,0,0,10">
                             <TextBlock Text="Unit Number" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                            <TextBox x:Name="txtUnitNumber" Height="38" />
+                            <TextBox x:Name="txtUnitNumber" Height="30" />
                         </StackPanel>
                         <StackPanel Margin="0,0,0,10">
                             <TextBlock Text="Status" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                            <ComboBox x:Name="cmbStatus" Height="38" ItemsSource="{Binding Statuses}" SelectedItem="{Binding SelectedStatus}" />
+                            <ComboBox x:Name="cmbStatus" Height="30" ItemsSource="{Binding Statuses}" SelectedItem="{Binding SelectedStatus}" />
                         </StackPanel>
                         <StackPanel Margin="0,0,0,10">
                             <TextBlock Text="Date of Birth" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                            <DatePicker x:Name="dpDOB" Height="38" />
+                            <DatePicker x:Name="dpDOB" Height="30" />
                         </StackPanel>
                         <StackPanel Margin="0,0,0,10">
                             <TextBlock Text="Anniversary" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
-                            <DatePicker x:Name="dpAnniversary" Height="38" />
+                            <DatePicker x:Name="dpAnniversary" Height="30" />
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
@@ -138,21 +138,21 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,12">
-                        <TextBox x:Name="txtSearch" Width="200" Height="38" Margin="0,0,8,0" />
-                        <Button Content="Search" Width="80" Height="38" Margin="0,0,16,0" Click="BtnSearch_Click" Background="#4CAF50" Foreground="White" BorderBrush="Transparent" />
-                        <Button Content="Add" Width="96" Height="38" Margin="0,0,8,0" Click="BtnAdd_Click" Background="#6C63FF" Foreground="White" BorderBrush="Transparent" />
-                        <Button Content="Edit" Width="96" Height="38" Margin="0,0,8,0" Click="BtnEdit_Click" Background="#FFB133" Foreground="White" BorderBrush="Transparent" />
-                        <Button Content="Delete" Width="96" Height="38" Click="BtnDelete_Click" Background="#EF5B5B" Foreground="White" BorderBrush="Transparent" />
+                        <TextBox x:Name="txtSearch" Width="200" Height="30" Margin="0,0,8,0" />
+                        <Button Content="Search" Width="80" Height="30" Margin="0,0,16,0" Click="BtnSearch_Click" Background="#4CAF50" Foreground="White" BorderBrush="Transparent" />
+                        <Button Content="Add" Width="96" Height="30" Margin="0,0,8,0" Click="BtnAdd_Click" Background="#6C63FF" Foreground="White" BorderBrush="Transparent" />
+                        <Button Content="Edit" Width="96" Height="30" Margin="0,0,8,0" Click="BtnEdit_Click" Background="#FFB133" Foreground="White" BorderBrush="Transparent" />
+                        <Button Content="Delete" Width="96" Height="30" Click="BtnDelete_Click" Background="#EF5B5B" Foreground="White" BorderBrush="Transparent" />
                     </StackPanel>
 
                     <DataGrid x:Name="dgTenants" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" HeadersVisibility="Column" SelectionMode="Single" SelectionChanged="DgTenants_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="60"/>
-                            <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" Width="100"/>
-                            <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" Width="100"/>
-                            <DataGridTextColumn Header="Unit" Binding="{Binding UnitNumber}" Width="80"/>
-                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="80"/>
-                            <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="70"/>
+                            <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" Width="60"/>
+                            <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" Width="60"/>
+                            <DataGridTextColumn Header="Unit" Binding="{Binding UnitNumber}" Width="60"/>
+                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="60"/>
+                            <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="60"/>
                             <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="150"/>
                             <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="120"/>
                             <DataGridTextColumn Header="DOB" Binding="{Binding DateOfBirth, StringFormat=d}" Width="90"/>

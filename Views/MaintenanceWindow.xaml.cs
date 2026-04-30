@@ -163,6 +163,8 @@ namespace SocietyManagementSystem
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
+            Dashboard dashboard = new Dashboard("");
+            dashboard.Show();
             this.Close();
         }
     }
