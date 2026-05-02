@@ -1,7 +1,9 @@
 using System.Windows;
+using System.Windows.Controls;
 using SocietyManagementSystem.Services;
 using SocietyManagementSystem.Models;
 using System.ComponentModel.DataAnnotations;
+using ValidationResult = System.ComponentModel.DataAnnotations.ValidationResult;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,12 +12,11 @@ namespace SocietyManagementSystem;
 /// <summary>
 /// Interaction logic for Signup.xaml
 /// </summary>
-public partial class Signup : Window
+public partial class Signup : Page
 {
     public Signup()
     {
         InitializeComponent();
-        this.WindowState = WindowState.Maximized;
     }
 
     private async void btnSignup_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -54,9 +55,8 @@ public partial class Signup : Window
             if (success)
             {
                 MessageBox.Show("Account created successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                Dashboard dashboard = new Dashboard(societyName);
-                dashboard.Show();
-                this.Close();
+                var dashboard = new Dashboard(societyName);
+                NavigationService?.Navigate(dashboard);
             }
             else
             {
@@ -72,8 +72,7 @@ public partial class Signup : Window
 
     private void btnLogin_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-        Login loginWindow = new Login();
-        loginWindow.Show();
-        this.Close();
+        var loginPage = new Login();
+        NavigationService?.Navigate(loginPage);
     }
 }

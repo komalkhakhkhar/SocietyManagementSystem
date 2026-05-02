@@ -2,14 +2,16 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using SocietyManagementSystem.Services;
 using SocietyManagementSystem.Models;
 using System.ComponentModel.DataAnnotations;
+using ValidationResult = System.ComponentModel.DataAnnotations.ValidationResult;
 using System.Collections.Generic;
 
 namespace SocietyManagementSystem
 {
-    public partial class MaintenanceWindow : Window
+    public partial class MaintenanceWindow : Page
     {
         private readonly MongoDbService _mongoDbService;
         public ObservableCollection<MaintenanceViewModel> Requests { get; set; } = new();
@@ -21,7 +23,6 @@ namespace SocietyManagementSystem
         public MaintenanceWindow(string societyName)
         {
             InitializeComponent();
-            this.WindowState = WindowState.Maximized;
             _mongoDbService = new MongoDbService(societyName);
             dgRequests.ItemsSource = Requests;
             cmbCategory.ItemsSource = Categories;
@@ -163,9 +164,10 @@ namespace SocietyManagementSystem
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            Dashboard dashboard = new Dashboard("");
-            dashboard.Show();
-            this.Close();
+            if (NavigationService?.CanGoBack == true)
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 

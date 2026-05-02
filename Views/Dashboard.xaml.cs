@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace SocietyManagementSystem
 {
-    public partial class Dashboard : Window
+    public partial class Dashboard : Page
     {
         private readonly MongoDbService _mongoDbService;
         private readonly string _societyName;
@@ -15,15 +15,14 @@ namespace SocietyManagementSystem
         public Dashboard(string societyName)
         {
             InitializeComponent();
-            this.WindowState = WindowState.Maximized;
-            _societyName = societyName;
-            _mongoDbService = new MongoDbService(societyName);
-        }
+        _societyName = societyName;
+        _mongoDbService = new MongoDbService(societyName);
+    }
 
-        private async void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            await LoadStatsAsync();
-        }
+    private async void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+        await LoadStatsAsync();
+    }
 
         private async System.Threading.Tasks.Task LoadStatsAsync()
         {
@@ -66,24 +65,16 @@ namespace SocietyManagementSystem
                     switch (title.Text)
                     {
                         case "Manage Tenants":
-                            var tenantWindow = new TenantWindow(_societyName);
-                            tenantWindow.Show();
-                            this.Close();
+                            NavigationService?.Navigate(new TenantWindow(_societyName));
                             break;
                         case "Manage Rents":
-                            var rentWindow = new RentWindow(_societyName);
-                            rentWindow.Show();
-                            this.Close();
+                            NavigationService?.Navigate(new RentWindow(_societyName));
                             break;
                         case "Maintenance Requests":
-                            var maintenanceWindow = new MaintenanceWindow(_societyName);
-                            maintenanceWindow.Show();
-                            this.Close();
+                            NavigationService?.Navigate(new MaintenanceWindow(_societyName));
                             break;
                         case "Announcements":
-                            var noticeWindow = new NoticeWindow(_societyName);
-                            noticeWindow.Show();
-                            this.Close();
+                            NavigationService?.Navigate(new NoticeWindow(_societyName));
                             break;
                     }
                 }
@@ -92,9 +83,7 @@ namespace SocietyManagementSystem
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
-            Login loginWindow = new Login();
-            loginWindow.Show();
-            this.Close();
+            NavigationService?.Navigate(new Login());
         }
     }
 }

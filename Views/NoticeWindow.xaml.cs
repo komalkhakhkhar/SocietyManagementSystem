@@ -1,14 +1,16 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using SocietyManagementSystem.Services;
 using SocietyManagementSystem.Models;
 using System.ComponentModel.DataAnnotations;
+using ValidationResult = System.ComponentModel.DataAnnotations.ValidationResult;
 using System.Collections.Generic;
 
 namespace SocietyManagementSystem
 {
-    public partial class NoticeWindow : Window
+    public partial class NoticeWindow : Page
     {
         private readonly MongoDbService _mongoDbService;
         public ObservableCollection<Notice> Notices { get; set; } = new();
@@ -18,7 +20,6 @@ namespace SocietyManagementSystem
         public NoticeWindow(string societyName)
         {
             InitializeComponent();
-            this.WindowState = WindowState.Maximized;
             _mongoDbService = new MongoDbService(societyName);
             dgNotices.ItemsSource = Notices;
             cmbAudience.ItemsSource = Audiences;
@@ -125,7 +126,10 @@ namespace SocietyManagementSystem
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (NavigationService?.CanGoBack == true)
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 }

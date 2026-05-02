@@ -14,14 +14,13 @@ namespace SocietyManagementSystem;
 /// <summary>
 /// Interaction logic for Login.xaml
 /// </summary>
-public partial class Login : Window
+public partial class Login : Page
 {
     private MongoDbService? _mongoDbService;
 
     public Login()
     {
         InitializeComponent();
-        this.WindowState = WindowState.Maximized;
     }
 
     private async void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -45,9 +44,8 @@ public partial class Login : Window
             if (isValid)
             {
                 MessageBox.Show("Login Successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                Dashboard dashboard = new Dashboard(societyName);
-                dashboard.Show();
-                this.Close();
+                var dashboard = new Dashboard(societyName);
+                NavigationService?.Navigate(dashboard);
             }
             else
             {
@@ -63,14 +61,13 @@ public partial class Login : Window
 
     private void btnSignup_Click(object sender, RoutedEventArgs e)
     {
-        Signup signupWindow = new Signup();
-        signupWindow.Show();
-        this.Close();
+        var signupPage = new Signup();
+        NavigationService?.Navigate(signupPage);
     }
 
     private void MenuTenants_Click(object sender, RoutedEventArgs e)
     {
-        var tenantWindow = new TenantWindow("");
-        tenantWindow.ShowDialog();
+        var tenantPage = new TenantWindow("");
+        NavigationService?.Navigate(tenantPage);
     }
 }

@@ -1,7 +1,7 @@
-<Window x:Class="SocietyManagementSystem.TenantWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Tenant Management" Height="640" Width="1040" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" WindowStyle="SingleBorderWindow" FontFamily="Segoe UI" Loaded="Window_Loaded">
+<Page x:Class="SocietyManagementSystem.TenantWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Tenant Management" FontFamily="Segoe UI" Loaded="Page_Loaded">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -28,6 +28,7 @@
                     <TextBlock Text="Manage society tenant details, contacts and important dates." FontSize="14" Foreground="#62768D" Margin="0,6,0,0" />
                 </StackPanel>
                 <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Button Content="Back" Width="80" Height="38" Margin="0,0,8,0" Click="BtnBack_Click" Background="#2196F3" Foreground="White" BorderBrush="Transparent" VerticalAlignment="Center" ToolTip="Go back to previous page" />
                     <Button Content="Rents" Width="80" Height="38" Margin="0,0,8,0" Click="BtnRents_Click" Background="#4CAF50" Foreground="White" BorderBrush="Transparent" VerticalAlignment="Center" ToolTip="Manage rent collection and payments" />
                     <Button Content="Maintenance" Width="110" Height="38" Margin="0,0,8,0" Click="BtnMaintenance_Click" Background="#FF9800" Foreground="White" BorderBrush="Transparent" VerticalAlignment="Center" ToolTip="Handle maintenance requests" />
                     <Button Content="Notices" Width="80" Height="38" Margin="0,0,8,0" Click="BtnNotices_Click" Background="#9C27B0" Foreground="White" BorderBrush="Transparent" VerticalAlignment="Center" ToolTip="Post and manage announcements" />
@@ -166,4 +167,4 @@
             <DropShadowEffect x:Key="WindowShadow" BlurRadius="24" ShadowDepth="0" Color="#4A5A7A" Opacity="0.14" />
         </Grid.Resources>
     </Grid>
-</Window>
+</Page>

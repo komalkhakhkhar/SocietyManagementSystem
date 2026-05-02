@@ -1,15 +1,17 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using SocietyManagementSystem.Services;
 using SocietyManagementSystem.Models;
 using System.ComponentModel.DataAnnotations;
+using ValidationResult = System.ComponentModel.DataAnnotations.ValidationResult;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SocietyManagementSystem
 {
-    public partial class TenantWindow : Window
+    public partial class TenantWindow : Page
     {
         private readonly MongoDbService _mongoDbService;
         private readonly string _societyName;
@@ -23,7 +25,6 @@ namespace SocietyManagementSystem
         public TenantWindow(string societyName)
         {
             InitializeComponent();
-            this.WindowState = WindowState.Maximized;
             _societyName = societyName;
             _mongoDbService = new MongoDbService(societyName);
             dgTenants.ItemsSource = Tenants;
@@ -37,7 +38,7 @@ namespace SocietyManagementSystem
             cmbStatus.SelectedIndex = 0;  // Set to "Please select..."
         }
 
-        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -291,47 +292,29 @@ namespace SocietyManagementSystem
             selectedTenant = null;
         }
 
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new Dashboard(_societyName));
+        }
+
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
-            Login loginWindow = new Login();
-            loginWindow.Show();
-            this.Close();
+            NavigationService?.Navigate(new Login());
         }
 
         private void BtnRents_Click(object sender, RoutedEventArgs e)
         {
-            RentWindow rentWindow = new RentWindow(_societyName);
-            rentWindow.Closed += async (s, ev) =>
-            {
-                // Refresh stats when RentWindow closes
-                await LoadStats();
-            };
-            rentWindow.Show();
-            this.Close();
+            NavigationService?.Navigate(new RentWindow(_societyName));
         }
 
         private void BtnMaintenance_Click(object sender, RoutedEventArgs e)
         {
-            MaintenanceWindow maintenanceWindow = new MaintenanceWindow(_societyName);
-            maintenanceWindow.Closed += async (s, ev) =>
-            {
-                // Refresh stats when MaintenanceWindow closes
-                await LoadStats();
-            };
-            maintenanceWindow.Show();
-            this.Close();
+            NavigationService?.Navigate(new MaintenanceWindow(_societyName));
         }
 
         private void BtnNotices_Click(object sender, RoutedEventArgs e)
         {
-            NoticeWindow noticeWindow = new NoticeWindow(_societyName);
-            noticeWindow.Closed += async (s, ev) =>
-            {
-                // Refresh stats when NoticeWindow closes
-                await LoadStats();
-            };
-            noticeWindow.Show();
-            this.Close();
+            NavigationService?.Navigate(new NoticeWindow(_societyName));
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)

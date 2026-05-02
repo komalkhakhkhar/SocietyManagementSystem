@@ -2,14 +2,16 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using SocietyManagementSystem.Services;
 using SocietyManagementSystem.Models;
 using System.ComponentModel.DataAnnotations;
+using ValidationResult = System.ComponentModel.DataAnnotations.ValidationResult;
 using System.Collections.Generic;
 
 namespace SocietyManagementSystem
 {
-    public partial class RentWindow : Window
+    public partial class RentWindow : Page
     {
         private readonly MongoDbService _mongoDbService;
         public ObservableCollection<RentViewModel> Rents { get; set; } = new();
@@ -19,7 +21,6 @@ namespace SocietyManagementSystem
         public RentWindow(string societyName)
         {
             InitializeComponent();
-            this.WindowState = WindowState.Maximized;
             _mongoDbService = new MongoDbService(societyName);
             dgRents.ItemsSource = Rents;
             this.Loaded += async (s, e) => 
@@ -207,7 +208,10 @@ namespace SocietyManagementSystem
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (NavigationService?.CanGoBack == true)
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 
