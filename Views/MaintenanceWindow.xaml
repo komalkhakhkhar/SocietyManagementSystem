@@ -2,29 +2,21 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       Title="Maintenance Requests">
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#FFEDF5FF" Offset="0"/>
-                <GradientStop Color="#FFEEF9F2" Offset="0.45"/>
-                <GradientStop Color="#FFF7ECFF" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-
+    <Grid Background="{DynamicResource PageBackgroundBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border Margin="16" Padding="20" Background="#FFFFFFFF" CornerRadius="28" BorderBrush="#E4E9F2" BorderThickness="1" Effect="{DynamicResource WindowShadow}">
+        <Border Margin="16" Padding="20" Background="{DynamicResource ContentBackgroundBrush}" CornerRadius="28" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Effect="{DynamicResource WindowShadow}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel>
-                    <TextBlock Text="Maintenance Requests" FontSize="28" FontWeight="Bold" Foreground="#1F3147" />
-                    <TextBlock Text="Manage maintenance and service requests." FontSize="14" Foreground="#62768D" Margin="0,6,0,0" />
+                    <TextBlock Text="Maintenance Requests" FontSize="28" FontWeight="Bold" Foreground="{DynamicResource PrimaryTextBrush}" />
+                    <TextBlock Text="Manage maintenance and service requests." FontSize="14" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,6,0,0" />
                 </StackPanel>
                 <Button Grid.Column="1" Content="Back" Width="80" Height="38" Click="BtnBack_Click" Background="#EF5B5B" Foreground="White" BorderBrush="Transparent" VerticalAlignment="Center" />
             </Grid>
@@ -37,33 +29,33 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Background="#FFFFFFFF" CornerRadius="24" Padding="18" BorderBrush="#E4E9F2" BorderThickness="1" Effect="{DynamicResource WindowShadow}">
+            <Border Grid.Column="0" Background="{DynamicResource ContentBackgroundBrush}" CornerRadius="24" Padding="18" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Effect="{DynamicResource WindowShadow}">
                 <StackPanel>
-                    <TextBlock Text="Request Details" FontSize="18" FontWeight="SemiBold" Foreground="#223350" Margin="0,0,0,14" />
+                    <TextBlock Text="Request Details" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource PrimaryTextBrush}" Margin="0,0,0,14" />
                     <StackPanel Margin="0,0,0,10">
-                        <TextBlock Text="Tenant" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
+                        <TextBlock Text="Tenant" FontSize="12" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,4" />
                         <ComboBox x:Name="cmbTenant" Height="38" DisplayMemberPath="FirstName" SelectedValuePath="Id" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,10">
-                        <TextBlock Text="Title" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
+                        <TextBlock Text="Title" FontSize="12" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,4" />
                         <TextBox x:Name="txtTitle" Height="38" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,10">
-                        <TextBlock Text="Description" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
+                        <TextBlock Text="Description" FontSize="12" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,4" />
                         <TextBox x:Name="txtDescription" Height="80" TextWrapping="Wrap" AcceptsReturn="True" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,10">
-                        <TextBlock Text="Category" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
+                        <TextBlock Text="Category" FontSize="12" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,4" />
                         <ComboBox x:Name="cmbCategory" Height="38" ItemsSource="{Binding Categories}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,10">
-                        <TextBlock Text="Priority" FontSize="12" Foreground="#6F7D94" Margin="0,0,0,4" />
+                        <TextBlock Text="Priority" FontSize="12" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,4" />
                         <ComboBox x:Name="cmbPriority" Height="38" ItemsSource="{Binding Priorities}" />
                     </StackPanel>
                 </StackPanel>
             </Border>
 
-            <Border Grid.Column="2" Background="#FFFFFFFF" CornerRadius="24" Padding="18" BorderBrush="#E4E9F2" BorderThickness="1" Effect="{DynamicResource WindowShadow}">
+            <Border Grid.Column="2" Background="{DynamicResource ContentBackgroundBrush}" CornerRadius="24" Padding="18" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Effect="{DynamicResource WindowShadow}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
